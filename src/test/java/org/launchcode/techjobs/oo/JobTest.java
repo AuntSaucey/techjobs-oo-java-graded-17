@@ -33,4 +33,37 @@ public class JobTest extends AbstractTest{
 
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String jobString = job.toString();
+        String newline = System.lineSeparator();
+
+        assertEquals(true, jobString.startsWith(newline));
+        assertEquals(true, jobString.endsWith(newline));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String jobString= job.toString();
+
+        assertTrue(jobString.contains("ID:"));
+        assertTrue(jobString.contains("Name: Product tester"));
+        assertTrue(jobString.contains("Employer: ACME"));
+        assertTrue(jobString.contains("Location: Desert"));
+        assertTrue(jobString.contains("Position Type: Quality control"));
+        assertTrue(jobString.contains("Core Competency: Persistence"));
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job = new Job("Product tester", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency("Persistence"));
+        String jobString = job.toString();
+
+        assertTrue(jobString.contains("Employer: Data not available"));
+        assertTrue(jobString.contains("Location: Data not available"));
+        assertTrue(jobString.contains("Position Type: Data not available"));
+    }
+
 }

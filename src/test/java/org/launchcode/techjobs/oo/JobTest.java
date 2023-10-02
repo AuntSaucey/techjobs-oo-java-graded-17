@@ -35,35 +35,34 @@ public class JobTest extends AbstractTest{
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
-        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job = new Job("Web Developer", new Employer("LaunchCode"), new Location("StL"), new PositionType("Back-end Developer"), new CoreCompetency("Java"));
         String jobString = job.toString();
         String newline = System.lineSeparator();
-
         assertEquals(true, jobString.startsWith(newline));
         assertEquals(true, jobString.endsWith(newline));
     }
 
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
-        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job = new Job("Web Developer", new Employer("LaunchCode"), new Location("StL"), new PositionType("Back-end Developer"), new CoreCompetency("Java"));
         String jobString= job.toString();
 
-        assertTrue(jobString.contains("ID:"));
-        assertTrue(jobString.contains("Name: Product tester"));
-        assertTrue(jobString.contains("Employer: ACME"));
-        assertTrue(jobString.contains("Location: Desert"));
-        assertTrue(jobString.contains("Position Type: Quality control"));
-        assertTrue(jobString.contains("Core Competency: Persistence"));
+        assertTrue(jobString.contains("ID: "));
+        assertTrue(jobString.contains("Name: Web Developer"));
+        assertTrue(jobString.contains("Employer: LaunchCode"));
+        assertTrue(jobString.contains("Location: StL"));
+        assertTrue(jobString.contains("Position Type: Back-end Developer"));
+        assertTrue(jobString.contains("Core Competency: Java"));
     }
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job job = new Job("Product tester", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency("Persistence"));
+        Job job = new Job("Web Developer", new Employer("Data not available"), new Location("Data not available"), new PositionType("Data not available"), new CoreCompetency("Java"));
         String jobString = job.toString();
+
 
         assertTrue(jobString.contains("Employer: Data not available"));
         assertTrue(jobString.contains("Location: Data not available"));
         assertTrue(jobString.contains("Position Type: Data not available"));
-    }
-
 }
+ }

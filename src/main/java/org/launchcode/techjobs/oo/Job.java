@@ -51,14 +51,23 @@ public class Job {
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
+    @Override
+    public String toString() {
+        String newline = System.lineSeparator();
+        return newline +
+                "ID: " + getId() + newline +
+                "Name: " + getName() + newline +
+                "Employer: " + (getEmployer().getValue().isEmpty() ? "Data not available" : getEmployer()) + newline +
+                "Location: " + (getLocation().getValue().isEmpty() ? "Data not available" : getLocation()) + newline +
+                "Position Type: " + (getPositionType().getValue().isEmpty() ? "Data not available" : getPositionType()) + newline +
+                "Core Competency: " + getCoreCompetency() + newline;
+    }
+
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -100,17 +109,4 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    @Override
-    public String toString(){
-        String newline = System.lineSeparator();
-        return newline +
-                "ID: " + getId() + newline +
-                "Name: " + getName() + newline +
-                "Employer: " + (getEmployer().getValue().isEmpty() ? "Data not available" : getEmployer()) + newline +
-                "Location: " + (getLocation().getValue().isEmpty() ? "Data not available" : getLocation()) + newline +
-                "Position Type: " + (getPositionType().getValue().isEmpty() ? "Data not available" : getPositionType()) + newline +
-                "Core Competency: " + (getCoreCompetency().getValue().isEmpty() ? "Data not available" : getCoreCompetency()) + newline +
-                newline;
-
-    }
 }

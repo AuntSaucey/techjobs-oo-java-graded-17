@@ -39,12 +39,12 @@ public class Job {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
+        return id == job.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        return Objects.hash(id);
     }
 
 
@@ -57,10 +57,10 @@ public class Job {
         return newline +
                 "ID: " + getId() + newline +
                 "Name: " + getName() + newline +
-                "Employer: " + (getEmployer().getValue().isEmpty() ? "Data not available" : getEmployer()) + newline +
-                "Location: " + (getLocation().getValue().isEmpty() ? "Data not available" : getLocation()) + newline +
-                "Position Type: " + (getPositionType().getValue().isEmpty() ? "Data not available" : getPositionType()) + newline +
-                "Core Competency: " + getCoreCompetency() + newline;
+                "Employer: " + (getEmployer().getValue().isEmpty() ? "Data not available" : getEmployer().getValue()) + newline +
+                "Location: " + (getLocation().getValue().isEmpty() ? "Data not available" : getLocation().getValue()) + newline +
+                "Position Type: " + (getPositionType().getValue().isEmpty() ? "Data not available" : getPositionType().getValue()) + newline +
+                "Core Competency: " + (getCoreCompetency().getValue().isEmpty() ? "Data not available" : getCoreCompetency().getValue()) + newline;
     }
 
 

@@ -35,9 +35,10 @@ public class JobTest extends AbstractTest{
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
-        Job job = new Job("Web Developer", new Employer("LaunchCode"), new Location("StL"), new PositionType("Back-end Developer"), new CoreCompetency("Java"));
+        Job job = new Job("Web Developer", new Employer("LaunchCode"), new Location("StL"), new PositionType("Back-end developer"), new CoreCompetency("Java"));
         String jobString = job.toString();
         String newline = System.lineSeparator();
+
         assertEquals(true, jobString.startsWith(newline));
         assertEquals(true, jobString.endsWith(newline));
     }

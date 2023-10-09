@@ -17,6 +17,10 @@ public class JobTest extends AbstractTest{
     public void testJobConstructorSetsAllFields() {
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertTrue(job instanceof Job);
+        assertTrue(job.getEmployer() instanceof Employer);
+        assertTrue(job.getLocation() instanceof Location);
+        assertTrue(job.getPositionType() instanceof PositionType);
+        assertTrue(job.getCoreCompetency() instanceof CoreCompetency);
         assertEquals("Product tester", job.getName());
         assertEquals("ACME", job.getEmployer().getValue());
         assertEquals("Desert", job.getLocation().getValue());
@@ -58,7 +62,7 @@ public class JobTest extends AbstractTest{
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job job = new Job("Web Developer", new Employer("Data not available"), new Location("Data not available"), new PositionType("Data not available"), new CoreCompetency("Java"));
+        Job job = new Job("Web Developer", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency("Java"));
         String jobString = job.toString();
 
 
